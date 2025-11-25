@@ -10,7 +10,7 @@
 <img width="200" height="400" alt="localhost_63811_(iPhone SE) (1)" src="https://github.com/user-attachments/assets/66339c14-65ba-460f-a743-7ed6485de431" />
 <img width="200" height="400" alt="localhost_63811_(iPhone SE) (2)" src="https://github.com/user-attachments/assets/b1a0e245-5a5b-424a-b655-0ad084755cbb" />
 <img width="200" height="400" alt="localhost_63811_(iPhone SE) (3)" src="https://github.com/user-attachments/assets/b63495d5-189b-4a63-9396-2eef204e9df5" />
-
+j
 
 # Penjelasn Source Code
 ## 1. registrasi.dart (Model Data Registrasi)
