@@ -32,6 +32,7 @@ Jika gagal → Tampilkan dialog error.
 
 ## 2. PROSES REGISTRASI
 <img width="200" height="400" alt="localhost_64777_(Samsung Galaxy S8+) (1)" src="https://github.com/user-attachments/assets/343b1baa-2b7a-473e-bdb9-c9e1336e3493" />
+
 Dari halaman login → Klik "Registrasi"
 Mengisi form:
 - Nama (minimal 3 karakter)
