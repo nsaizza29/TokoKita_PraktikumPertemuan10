@@ -1,26 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:tokokita/bloc/produk_bloc.dart';
 import 'package:tokokita/model/produk.dart';
 import 'package:tokokita/ui/produk_form.dart';
 import 'package:tokokita/ui/produk_page.dart';
-
-// Jika belum ada, sementara buat dummy class agar tidak error saat compile
-class ProdukBloc {
-  static Future<bool> deleteProduk({required int id}) async {
-    return Future.value(true);
-  }
-}
-
-class WarningDialog extends StatelessWidget {
-  final String description;
-  const WarningDialog({Key? key, required this.description}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return AlertDialog(
-      content: Text(description),
-    );
-  }
-}
+import 'package:tokokita/widget/warning_dialog.dart';
 
 // ignore: must_be_immutable
 class ProdukDetail extends StatefulWidget {
@@ -34,20 +17,12 @@ class ProdukDetail extends StatefulWidget {
 class _ProdukDetailState extends State<ProdukDetail> {
   @override
   Widget build(BuildContext context) {
-    // Proteksi null
-    if (widget.produk == null) {
-      return const Scaffold(
-        body: Center(child: Text("Data produk tidak tersedia")),
-      );
-    }
-
     return Scaffold(
       appBar: AppBar(
         title: const Text('Detail Produk Izza'),
       ),
       body: Center(
         child: Column(
-          mainAxisSize: MainAxisSize.min,
           children: [
             Text(
               "Kode : ${widget.produk!.kodeProduk}",
@@ -58,10 +33,9 @@ class _ProdukDetailState extends State<ProdukDetail> {
               style: const TextStyle(fontSize: 18.0),
             ),
             Text(
-              "Harga : Rp ${widget.produk!.hargaProduk}",
+              "Harga : Rp. ${widget.produk!.hargaProduk.toString()}",
               style: const TextStyle(fontSize: 18.0),
             ),
-            const SizedBox(height: 20),
             _tombolHapusEdit()
           ],
         ),
@@ -73,7 +47,6 @@ class _ProdukDetailState extends State<ProdukDetail> {
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: [
-        // Tombol Edit
         OutlinedButton(
           child: const Text("EDIT"),
           onPressed: () {
@@ -87,11 +60,10 @@ class _ProdukDetailState extends State<ProdukDetail> {
             );
           },
         ),
-        const SizedBox(width: 10),
-        // Tombol Hapus
+
         OutlinedButton(
           child: const Text("DELETE"),
-          onPressed: confirmHapus,
+          onPressed: () => confirmHapus(),
         ),
       ],
     );
@@ -101,41 +73,39 @@ class _ProdukDetailState extends State<ProdukDetail> {
     AlertDialog alertDialog = AlertDialog(
       content: const Text("Yakin ingin menghapus data ini?"),
       actions: [
-        // Tombol ya
         OutlinedButton(
           child: const Text("Ya"),
-          onPressed: () async {
-            try {
-              final id = int.tryParse(widget.produk!.id ?? '');
-
-              if (id == null) {
-                throw Exception("ID tidak valid");
-              }
-
-              await ProdukBloc.deleteProduk(id: id);
-
-              Navigator.of(context).pushAndRemoveUntil(
-                MaterialPageRoute(builder: (context) => const ProdukPage()),
-                (route) => false,
-              );
-            } catch (e) {
-              showDialog(
-                context: context,
-                builder: (context) => const WarningDialog(
-                  description: "Hapus gagal, silakan coba lagi",
-                ),
-              );
-            }
+          onPressed: () {
+            ProdukBloc.deleteProduk(id: int.parse(widget.produk!.id!)).then(
+              (value) => {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => const ProdukPage(),
+                  ),
+                )
+              },
+              onError: (error) {
+                showDialog(
+                  context: context,
+                  builder: (BuildContext context) => const WarningDialog(
+                    description: "Hapus gagal, silahkan coba lagi",
+                  ),
+                );
+              },
+            );
           },
         ),
-        // Tombol batal
+
         OutlinedButton(
           child: const Text("Batal"),
           onPressed: () => Navigator.pop(context),
-        )
+        ),
       ],
     );
 
-    showDialog(context: context, builder: (context) => alertDialog);
+    showDialog(
+      builder: (context) => alertDialog,
+      context: context,
+    );
   }
 }

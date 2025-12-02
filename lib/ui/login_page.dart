@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:tokokita/helpers/user_info.dart';
 import 'package:tokokita/ui/registrasi_page.dart';
+import 'package:tokokita/ui/produk_page.dart';
+import 'package:tokokita/bloc/login_bloc.dart';
+import 'package:tokokita/widget/warning_dialog.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -16,17 +20,10 @@ class _LoginPageState extends State<LoginPage> {
   final _passwordTextboxController = TextEditingController();
 
   @override
-  void dispose() {
-    _emailTextboxController.dispose();
-    _passwordTextboxController.dispose();
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Login Izza'),
+        title: const Text('Login'),
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -37,10 +34,9 @@ class _LoginPageState extends State<LoginPage> {
               children: [
                 _emailTextField(),
                 _passwordTextField(),
-                const SizedBox(height: 20),
                 _buttonLogin(),
                 const SizedBox(height: 30),
-                _menuRegistrasi()
+                _menuRegistrasi(),
               ],
             ),
           ),
@@ -49,14 +45,13 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  // Textbox Email
   Widget _emailTextField() {
     return TextFormField(
       decoration: const InputDecoration(labelText: "Email"),
       keyboardType: TextInputType.emailAddress,
       controller: _emailTextboxController,
       validator: (value) {
-        if (value == null || value.isEmpty) {
+        if (value!.isEmpty) {
           return 'Email harus diisi';
         }
         return null;
@@ -64,14 +59,14 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  // Textbox Password
   Widget _passwordTextField() {
     return TextFormField(
       decoration: const InputDecoration(labelText: "Password"),
+      keyboardType: TextInputType.text,
       obscureText: true,
       controller: _passwordTextboxController,
       validator: (value) {
-        if (value == null || value.isEmpty) {
+        if (value!.isEmpty) {
           return "Password harus diisi";
         }
         return null;
@@ -79,36 +74,63 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  // Tombol Login
   Widget _buttonLogin() {
     return ElevatedButton(
-      child: _isLoading
-          ? const CircularProgressIndicator(color: Colors.white)
-          : const Text("Login"),
-      onPressed: _isLoading ? null : _loginProses,
+      child: const Text("Login"),
+      onPressed: () {
+        var validate = _formKey.currentState!.validate();
+        if (validate) {
+          if (!_isLoading) _submit();
+        }
+      },
     );
   }
 
-  void _loginProses() {
-    if (_formKey.currentState!.validate()) {
-      setState(() {
-        _isLoading = true;
-      });
+  void _submit() {
+    _formKey.currentState!.save();
+    setState(() {
+      _isLoading = true;
+    });
 
-      // Simulasi proses login
-      Future.delayed(const Duration(seconds: 2), () {
-        setState(() {
-          _isLoading = false;
-        });
+    LoginBloc.login(
+      email: _emailTextboxController.text,
+      password: _passwordTextboxController.text,
+    ).then((value) async {
+      if (value.code == 200) {
+        await UserInfo().setToken(value.token.toString());
+        await UserInfo().setUserID(int.parse(value.userID.toString()));
 
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text("Login Berhasil")),
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const ProdukPage(),
+          ),
         );
-      });
-    }
+      } else {
+        showDialog(
+          context: context,
+          barrierDismissible: false,
+          builder: (BuildContext context) => const WarningDialog(
+            description: "Login gagal, silahkan coba lagi",
+          ),
+        );
+      }
+    }, onError: (error) {
+      print(error);
+      showDialog(
+        context: context,
+        barrierDismissible: false,
+        builder: (BuildContext context) => const WarningDialog(
+          description: "Login gagal, silahkan coba lagi",
+        ),
+      );
+    });
+
+    setState(() {
+      _isLoading = false;
+    });
   }
 
-  // Menu ke halaman registrasi
   Widget _menuRegistrasi() {
     return Center(
       child: InkWell(
@@ -119,7 +141,9 @@ class _LoginPageState extends State<LoginPage> {
         onTap: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => const RegistrasiPage()),
+            MaterialPageRoute(
+              builder: (context) => const RegistrasiPage(),
+            ),
           );
         },
       ),
