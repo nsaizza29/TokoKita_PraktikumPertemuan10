@@ -7,10 +7,10 @@
 <img width="200" height="400" alt="localhost_64777_(Samsung Galaxy S8+) (1)" src="https://github.com/user-attachments/assets/343b1baa-2b7a-473e-bdb9-c9e1336e3493" />
 <img width="200" height="400" alt="localhost_64777_(Samsung Galaxy S8+) (8)" src="https://github.com/user-attachments/assets/faf4251c-62f8-45ea-9368-80057f9e8fd4" />
 <img width="200" height="400" alt="localhost_64777_(Samsung Galaxy S8+) (2)" src="https://github.com/user-attachments/assets/1ead2aba-0931-4e57-a6de-661f0137e910" />
-<img width="200" height="400" alt="localhost_64777_(Samsung Galaxy S8+) (9)" src="https://github.com/user-attachments/assets/0bed4ce9-ac21-4636-9404-53464740a73b" />
-<img width="200" height="400" alt="localhost_64777_(Samsung Galaxy S8+) (5)" src="https://github.com/user-attachments/assets/fec338dc-2fb1-443e-af8e-99afa121887b" />
-<img width="200" height="400" alt="localhost_64777_(Samsung Galaxy S8+) (4)" src="https://github.com/user-attachments/assets/db7163c6-84fa-4d20-86aa-b19967f07725" />
-<img width="200" height="400" alt="localhost_64777_(Samsung Galaxy S8+) (6)" src="https://github.com/user-attachments/assets/ac0a6c19-f3dc-4937-b305-21c57700612e" />
+<img width="200" height="400" alt="localhost_64777_(Samsung Galaxy S8+) (11)" src="https://github.com/user-attachments/assets/24dd9e10-9fdf-409c-9732-29f0a9831b24" />
+<img width="200" height="400" alt="localhost_64777_(Samsung Galaxy S8+) (12)" src="https://github.com/user-attachments/assets/1f5f9e63-4be0-4e60-a7cd-6ba527fe15bd" />
+<img width="200" height="400" alt="localhost_64777_(Samsung Galaxy S8+) (13)" src="https://github.com/user-attachments/assets/a573b9a3-5200-4eaf-b2ee-b312dd89cc38" />
+<img width="200" height="400" alt="localhost_64777_(Samsung Galaxy S8+) (14)" src="https://github.com/user-attachments/assets/8a99fecd-2ce3-4d71-b573-cb358c120b06" />
 <img width="200" height="400" alt="localhost_64777_(Samsung Galaxy S8+) (7)" src="https://github.com/user-attachments/assets/61f8aa94-5973-4420-ba4b-485db85a7c1f" />
 
 
