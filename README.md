@@ -4,13 +4,14 @@
 - Shift  : D
 
 # Hasil Screenshot
-<img width="200" height="400" alt="localhost_59371_(iPhone SE)" src="https://github.com/user-attachments/assets/8b4733ae-3993-4600-9210-e7d880515b13" />
-<img width="200" height="400" alt="localhost_59371_(iPhone SE) (1)" src="https://github.com/user-attachments/assets/8f6e8783-b988-4466-b130-84f5547737b7" />
-<img width="200" height="400" alt="localhost_63811_(iPhone SE)" src="https://github.com/user-attachments/assets/037a1a4c-64d9-4661-bc6b-ebee0d7f6039" />
-<img width="200" height="400" alt="localhost_63811_(iPhone SE) (1)" src="https://github.com/user-attachments/assets/66339c14-65ba-460f-a743-7ed6485de431" />
-<img width="200" height="400" alt="localhost_63150_(iPhone SE)" src="https://github.com/user-attachments/assets/9109e3b2-fb90-49fd-8ad7-e48e7983e8b2" />
-<img width="200" height="400" alt="localhost_63811_(iPhone SE) (2)" src="https://github.com/user-attachments/assets/b1a0e245-5a5b-424a-b655-0ad084755cbb" />
-<img width="200" height="400" alt="localhost_63811_(iPhone SE) (3)" src="https://github.com/user-attachments/assets/b63495d5-189b-4a63-9396-2eef204e9df5" />
+<img width="200" height="400" alt="localhost_64777_(Samsung Galaxy S8+) (1)" src="https://github.com/user-attachments/assets/343b1baa-2b7a-473e-bdb9-c9e1336e3493" />
+<img width="200" height="400" alt="localhost_64777_(Samsung Galaxy S8+) (8)" src="https://github.com/user-attachments/assets/faf4251c-62f8-45ea-9368-80057f9e8fd4" />
+<img width="200" height="400" alt="localhost_64777_(Samsung Galaxy S8+) (2)" src="https://github.com/user-attachments/assets/1ead2aba-0931-4e57-a6de-661f0137e910" />
+<img width="200" height="400" alt="localhost_64777_(Samsung Galaxy S8+) (5)" src="https://github.com/user-attachments/assets/fec338dc-2fb1-443e-af8e-99afa121887b" />
+<img width="200" height="400" alt="localhost_64777_(Samsung Galaxy S8+) (4)" src="https://github.com/user-attachments/assets/db7163c6-84fa-4d20-86aa-b19967f07725" />
+<img width="200" height="400" alt="localhost_64777_(Samsung Galaxy S8+) (6)" src="https://github.com/user-attachments/assets/ac0a6c19-f3dc-4937-b305-21c57700612e" />
+<img width="200" height="400" alt="localhost_64777_(Samsung Galaxy S8+) (7)" src="https://github.com/user-attachments/assets/61f8aa94-5973-4420-ba4b-485db85a7c1f" />
+
 
 # Penjelasn Source Code
 ## 1. registrasi.dart (Model Data Registrasi)
